@@ -8,12 +8,6 @@ use Adnane\Arabic\Ar\Strings;
 
 class Arabic
 {
-    protected static $numberFormat = 'la';
-    
-    public function __construct($numberFormat = null)
-    {
-        if(!! $numberFormat) self::$numberFormat = 'ar';
-    }
     /* 
     | ========================================================
     | [ Working with numbers & integers ] 

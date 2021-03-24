@@ -12,11 +12,11 @@ echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سب
 ```
 **installation**
 
-install via composer 
+1.install via composer 
 ```
 composer require adnane/laravel-speaks-arabic
 ```
-in your ```config\app.php``` add the service provider in providers array 
+2.in your ```config\app.php``` add the service provider in providers array 
 
 ```php 
 'providers' => [ 
@@ -24,13 +24,13 @@ in your ```config\app.php``` add the service provider in providers array
 ]
 ```
 
-as you can defin an alias in ```config\app.php``` name alias in aliases array 
+3.as you can define an alias in ```config\app.php``` in the aliases array 
 ```php 
-'Arabic' => Adnane\Arabic\ArabicServiceProvider::class,
+'Arabic' => Adnane\Arabic\Arabic::class,
 ```
 
 # use in blade files 
-make sure you define an alias first 
+***make sure you define an alias first***
 
 ```php 
 {{ Arabic::method($input) }}
