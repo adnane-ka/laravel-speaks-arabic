@@ -14,7 +14,7 @@ echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سب
 
 install via composer 
 ```
-
+composer require adnane/laravel-speaks-arabic
 ```
 in your ```config\app.php``` add the service provider in providers array 
 
