@@ -1,0 +1,17 @@
+{
+    "name": "adnane/laravel-speaks-arabic",
+    "description": "A laravel package that facilitates dealing with arabic concepts & charachters",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dannyk-99",
+            "email": "dannykadri0@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Adnane\\Arabic\\": "/src"
+        }
+    },
+    "require": {}
+}
