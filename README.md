@@ -38,7 +38,7 @@ composer require adnane/laravel-speaks-arabic
  
 # Methods & How to use 
 
-**make sure you use the class correcly**
+**import the class as bellow**
 ```php 
 use Adnane\Arabic\Arabic;
 ```
