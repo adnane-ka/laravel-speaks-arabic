@@ -112,7 +112,7 @@ Arabic::removeHarakat($longText)
 
 /* 
 | rewrite strings and texts to match the keyboard reveresed in english 
-| can be really helpful when it comes to making search procces better 
+| this method can be really helpful when it comes to making search procces better 
 | @params : $str (string) required [ string to reverse ]
 | 
 | example :
@@ -123,7 +123,7 @@ Arabic::toKeyboardInput($longText)
 
 /* 
 | rewrite strings and texts to be written and spelled in english letters 
-| this can be really helpful when it comes to making seo friendly url's or slugs 
+| this mehotd can be really helpful when it comes to making seo friendly url's or arabic slugs 
 | @params : $str (string) required [ string to write in spelled form ]
 | 
 | [input] : إِذَا مَاتَ الإنْسَانُ انْقَطَعَ عنْه عَمَلُهُ إِلَّا مِن ثَلَاثَةٍ: إِلَّا مِن صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو له
