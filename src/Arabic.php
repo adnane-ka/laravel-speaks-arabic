@@ -25,8 +25,9 @@ class Arabic
         'arkam'   => [ Ar\Tafkit::class ,'toIndianNums' ],
         
         #dates and times
-        'hijri'   => [ Ar\Tawkit::class ,'fullHijri' ],
-        'fariq'   => [ Ar\Tawkit::class ,'relativeTime' ],
+        'toHijri'   => [ Ar\Tawkit::class ,'GregorianToHijri' ],
+        'fromHijri'   => [ Ar\Tawkit::class ,'HijriToGregorian' ],
+        'fariq'   => [ Ar\Tawkit::class ,'getRelativeTime' ],
         
         #strings & texts
         'removeHarakat' => [ Ar\Strings::class ,'removeHarakat' ],

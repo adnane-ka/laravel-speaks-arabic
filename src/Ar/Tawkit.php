@@ -83,7 +83,8 @@ class Tawkit
     | n : stands for -> numeric date 
     | 
     */ 
-    public static function fullHijri($format = 'f' ,$date)
+    # method 
+    public static function GregorianToHijri($format = 'f' ,$date)
     {
         if(!$date) $time = time();
         else $time = strtotime($date);
@@ -105,25 +106,30 @@ class Tawkit
                 break;
         }
     }
-    
+
+    # reverse 
+    public static function HijriToGregorian($date)
+    {
+        return jdtogregorian(self::HijriToJD($date));
+    }
     /* 
-    | this function converts gregorian time to hijri time
+    | these methods converts gregorian time from/to hijri time
     | 
-    | it uses the function cal_to_jd 
-    | that means that it turns a given calendar time
-    | to julian day count 
-    | 
-    | The Julian day is the continuous count
-    | of days since the beginning of the Julian period
+    | it uses the functions cal_to_jd / jdtogregorian
+    |
+    |  a jd is The Julian day ,which is the continuous count
+    |  of days since the beginning of the Julian period
     |  julian period starts from : Jan , 1 , 4713 BC 
     |
-    | the method cal_to_jd , handle that and count the days 
-    | past between 4713 BC and the target given time 
+    |  the method cal_to_jd , handles that and counts the days 
+    |  past between 4713 BC and the target time 
     |
-    | example of response to GreToHijri() : [ 0 => 8 , 1 => 10 ,2 => 1442 ]
+    |  & jdtogregorian does the reverse 
     |  
     */
-    public static function GreToHijri($time = null)
+
+    # method // response : array 
+    private static function GreToHijri($time = null)
     {
         if ($time === null) { $time = time(); }
         
@@ -136,6 +142,19 @@ class Tawkit
         $julian_day_count = cal_to_jd(CAL_GREGORIAN, $date['m'], $date['d'], $date['y']);
         
         return self::JDToHijri($julian_day_count);
+    }
+    # reverse 
+    private static function HijriToJD($date)
+    {
+        $levels = explode('/' ,$date);
+
+        $y = $levels[0];
+        $m = $levels[1];
+        $d = $levels[2];
+
+        return (int)((11 * $y + 3) / 30) +
+           354 * $y + 30 * $m -
+           (int)(($m - 1) / 2) + $d + 1948440 - 385;
     }
 
     /* 
@@ -173,7 +192,7 @@ class Tawkit
         
         $y  = 30 * $n + $j - 30;
 
-        return array($m, $d, $y);
+        return [$m, $d, $y];
     }
 
     /* 
@@ -189,7 +208,7 @@ class Tawkit
     | count time between two given dates 
     | example : 1900/12/12 -> "منذ مئة و عشرون سنة"
     */
-    public static function relativeTime($date ,$date2 = null,$detailed = false)
+    public static function getRelativeTime($date ,$date2 = null,$detailed = false)
     {
         $r = self::standardRelative($date ,$date2);
         $r = self::handleSpecials($r);
