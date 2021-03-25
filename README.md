@@ -100,8 +100,11 @@ Arabic::arkam($longText)
 |
 | example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
 */
-Arabic::hijri($format = 'f' ,$date = null)
+Arabic::toHijri($format = 'f' ,$date = null)
 
+// reverse 
+
+Arabic::fromHijri($date /*Y/m/d*/);
 /* 
 | Get the relative time between two given dates 
 | @params : $date (Y/m/d) required , $date2 (Y/m/d) , $detailed (boolean) 
