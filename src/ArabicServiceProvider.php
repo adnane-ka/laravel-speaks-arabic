@@ -13,10 +13,6 @@ class ArabicServiceProvider extends ServiceProvider
     public function register()
     {
         /* register classess */
-        $this->app->make('Adnane\Arabic\Ar\Tafkit');
-        $this->app->make('Adnane\Arabic\Ar\Strings');
-        $this->app->make('Adnane\Arabic\Ar\Tawkit');
-
         $this->app->make('Adnane\Arabic\Arabic');
     }
     /**

@@ -83,7 +83,7 @@ class Tawkit
     | n : stands for -> numeric date 
     | 
     */ 
-    public static function fullHijri($date , $format = 'f')
+    public static function fullHijri($format = 'f' ,$date)
     {
         if(!$date) $time = time();
         else $time = strtotime($date);
@@ -189,7 +189,7 @@ class Tawkit
     | count time between two given dates 
     | example : 1900/12/12 -> "منذ مئة و عشرون سنة"
     */
-    public static function relativeTime($date ,$date2 ,$detailed)
+    public static function relativeTime($date ,$date2 = null,$detailed = false)
     {
         $r = self::standardRelative($date ,$date2);
         $r = self::handleSpecials($r);

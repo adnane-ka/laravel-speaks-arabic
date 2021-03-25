@@ -160,5 +160,9 @@ arabic()->toSpelled($longText)
 
 **it's highly recommended you follow the written code manner**
 1. Create new PHP class in ```/Ar/```
+<<<<<<< Updated upstream
 2. You may need to add some data in ```/Ar/data/YourFolder/```
+=======
+2. You may need to add some data in ```/Ar/data/YourFloder/```
+>>>>>>> Stashed changes
 2. Import your class in Arabic.php & define your methods !That's it!

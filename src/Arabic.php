@@ -2,139 +2,74 @@
 
 namespace Adnane\Arabic;
 
-use Adnane\Arabic\Ar\Tafkit;
-use Adnane\Arabic\Ar\Tawkit;
-use Adnane\Arabic\Ar\Strings;
+
+use Adnane\Arabic\Ar\Grammar;
 
 class Arabic
 {
     /* 
     | ========================================================
-    | [ Working with numbers & integers ] 
+    | => Here where you can define new methods & refrence them 
+    | to theire containing instances , as they will be handled 
+    | & declared dynamicly by this instance.
     |
-    | handle methods calls for Class located  at 
-    | [ Adnane\Arabic\Ar\Tafkit ]
-    | 
+    | => you may override methods' names and name theme as you 
+    | or your project desire !
     | ========================================================
     */
- 
-    /* 
-    |
-    | convert numeric numbers to spelled strings 
-    | example : from 23 to ثلاث وعشرون
-    | max number supported : 999999999999999
-    | @params : $integer (int)
-    |
-    */
-    public static function tafkit($integer)
-    {
-        return Tafkit::kalimat($integer);
-    }
-
-    /* 
-    |
-    | convert numeric numbers to ordered declares
-    | example : from 23 to الثالث والعشرون
-    | max number supported : 999999999999999
-    | @params : $integer (int)
-    |
-    */
-    public static function tartib($integer)
-    {
-        return Tafkit::tartib($integer);
-    }
-    /* 
-    |
-    | rewrite numbers to be like ۱٧۳۱۸
-    | 
-    | @params : $str (string)
-    |
-    */
-    public static function arkam($integer)
-    {
-        return Tafkit::toIndianNums($integer); 
-    }
+    private static $methods = 
+    [
+        #numbers and integers
+        'kalimat' => [ Ar\Tafkit::class ,'kalimat' ],
+        'tartib'  => [ Ar\Tafkit::class ,'tartib' ],
+        'arkam'   => [ Ar\Tafkit::class ,'toIndianNums' ],
+        
+        #dates and times
+        'hijri'   => [ Ar\Tawkit::class ,'fullHijri' ],
+        'fariq'   => [ Ar\Tawkit::class ,'relativeTime' ],
+        
+        #strings & texts
+        'removeHarakat' => [ Ar\Strings::class ,'removeHarakat' ],
+        'toKeyboardInput' => [ Ar\Strings::class ,'toKeyboardInput' ],
+        'toSpelled' => [ Ar\Strings::class ,'toSpelled' ],
+    ];
 
     /* 
     | ========================================================
-    | [ Working with dates & unix times ] 
+    | Here where you we are loading & calling the methods using 
     |
-    | handle calls for Class located  at 
-    | [ Adnane\Arabic\Ar\Tawkit  ]
-    | 
+    | the instance's private property $methods 
+    | method can be called staticly using __callStatic
+    | or non staticly using __call , as they both use the calls
+    | handler method
     | ========================================================
     */
-
-    /* 
-    |
-    | convert a given date to hijri takwim date 
-    | format supported : f , s , n 
-    | @params : $format (string) , $date (dateformat) 
-    |
-    */
-    public static function hijri($format = 'f' ,$date = null)
+    # static 
+    public static function __callStatic($method ,$params)
     {
-        return Tawkit::fullHijri($date,$format); 
+
+        return self::handleCall($method ,$params);
+    
+    }
+
+    # non static
+    function __call($method ,$params)
+    {
+
+        return self::handleCall($method ,$params);
+    
     }
     
-    /* 
-    |
-    | Get the relative time between two given dates 
-    | 
-    | 
-    | @params : $date (dateformat) , $date2 (dateformat) , $detailed (boolean) 
-    |
-    */
-    public static function fariq($date ,$date2 = null ,$detailed = false)
-    { 
-        return Tawkit::relativeTime($date ,$date2 ,$detailed); 
-    }
-
-    /* 
-    | ========================================================
-    | [ Working with long texts & strings ] 
-    |
-    | handle calls for Class located  at 
-    | [ Adnane\Arabic\Ar\Strings   ]
-    | 
-    | ========================================================
-    */
-
-    /* 
-    |
-    | get rid of The vowel diacritics in Arabic  
-    | @params : $str (string) [ string to clean ]
-    |
-    */
-    public static function removeHarakat($str)
+    # calls handler
+    private static function handleCall($method ,$params)
     {
-        return Strings::removeHarakat($str);
-    }
+        if(array_key_exists($method ,self::$methods))
+        {
+            $instance = self::$methods[$method][0];
 
-    /* 
-    |
-    | rewrite strings and texts to match the keyboard reveresed in english 
-    | can be really helpful when it comes to making search proccess better 
-    | 
-    | @params : $str (string) [ string to reverse ]
-    |
-    */
-    public static function toKeyboardInput($str)
-    {
-        return Strings::toKeyboardInput($str);
+            $method = self::$methods[$method][1];
+            
+            return call_user_func_array([$instance , $method] ,$params);
+        }
     }
-    
-    /* 
-    |
-    | rewrite strings and texts to be written and spelled in english letters 
-    | this can be really helpful when it comes to making seo friendly url's or slugs 
-    | 
-    | @params : $str (string) [ string to write in spelled form ]
-    |
-    */
-    public static function toSpelled($str)
-    {
-        return Strings::toSpelled($str);
-    }
-   
 }

@@ -18,7 +18,7 @@
             "Adnane\\Arabic\\": "/src"
         },
         "files": [
-            "src/helpers.php"
+            "/src/helpers.php"
         ]
     },
     "require": {}
