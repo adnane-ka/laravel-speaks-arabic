@@ -1,203 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-<title>Laravel Speaks Arabic | laravel-speaks-arabic</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Laravel Speaks Arabic" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on" />
-<meta property="og:description" content="“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on" />
-<link rel="canonical" href="https://dannyk-99.github.io/laravel-speaks-arabic/" />
-<meta property="og:url" content="https://dannyk-99.github.io/laravel-speaks-arabic/" />
-<meta property="og:site_name" content="laravel-speaks-arabic" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Laravel Speaks Arabic" />
+    <title>Laravel Speaks Arabic | laravel-speaks-arabic</title>
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Laravel Speaks Arabic" />
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/github.png" type="image/x-icon">
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on" />
+    <meta property="og:description" content="“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on" />
+    <link rel="canonical" href="https://dannyk-99.github.io/laravel-speaks-arabic/" />
+    <meta property="og:url" content="https://dannyk-99.github.io/laravel-speaks-arabic/" />
+    <meta property="og:site_name" content="laravel-speaks-arabic" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Laravel Speaks Arabic" />
+    <meta name="keywords" content="Laravel ,Arabic ,Php ,Package ,Tafkit ,Tafkeet ,Tafqeet ,Hijri,kalimat ,tartib ,arkam ,toHijri ,fromHijri ,fariq ,removeHarakat ,toKeyboardInput ,toSpelled">
+    <meta name="og:keywords" content="Laravel ,Arabic ,Php ,Package ,Tafkit ,Tafkeet ,Tafqeet ,Hijri,kalimat ,tartib ,arkam ,toHijri ,fromHijri ,fariq ,removeHarakat ,toKeyboardInput ,toSpelled">
+    <meta name="author" content="Adnane Kadri">
+    <meta name="og:author" content="Adnane Kadri">
     <meta name="google-site-verification" content="5cFeRwKZID_6y4bFU6GiST1abT9SnF7LbiUIz4WY_d4" />
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"Laravel Speaks Arabic","url":"https://dannyk-99.github.io/laravel-speaks-arabic/","description":"“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on","name":"laravel-speaks-arabic","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Laravel Speaks Arabic","url":"https://dannyk-99.github.io/laravel-speaks-arabic/","description":"“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on","name":"laravel-speaks-arabic","@context":"https://schema.org"}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/laravel-speaks-arabic/assets/css/style.css?v=6885db35c8ce5c25400c3b8ad7d73d074bdb5cc9">
+    <style>@import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);*{padding:0;margin:0;box-sizing:border-box;font-family:Alata,sans-serif;text-align:center}.page-header{margin:0;padding:30px 100px}body{background:linear-gradient(230deg ,#a24bcf,#4b79cf,#4bc5cf);background-size:300% 300%;-webkit-animation:movingLinear 30s ease infinite;-moz-animation:movingLinear 30s ease infinite;animation:movingLinear 30s ease infinite}@-webkit-keyframes movingLinear{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}@-moz-keyframes movingLinear{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}@keyframes movingLinear{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}.project-name{text-align:center;color:rgba(255,255,255,.4);font-size:2.3em;padding-bottom:30px}.project-tagline{text-align:center;color:#fff}img{max-width:70%;margin:auto}.site-footer{color:#fff;text-shadow:1px 1px -1px rgba(0,0,0,.3)}.site-footer a{color:inherit;text-decoration:none}@media only screen and (max-width:500px){.page-header{padding:30px 0}img{max-width:100%;margin:auto}}</style>
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">laravel-speaks-arabic</h1>
-      <h2 class="project-tagline">"Laravel Speaks Arabic" is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on </h2>
-      
-        <a href="https://github.com/dannyk-99/laravel-speaks-arabic" class="btn">View on GitHub</a>
-      
-      
-    </section>
-
-    <section class="main-content">
-      <h1 id="laravel-speaks-arabic"><code class="language-plaintext highlighter-rouge">Laravel Speaks Arabic</code></h1>
-
-<p><strong>“Laravel Speaks Arabic” is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates &amp; Arabic strings and so on ..</strong></p>
-
-<p><strong>code example</strong></p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">use</span> <span class="nc">Adnane\Arabic\Arabic</span><span class="p">;</span>
-
-<span class="k">echo</span> <span class="nc">Arabic</span><span class="o">::</span><span class="nf">tafkit</span><span class="p">(</span><span class="mi">12078437</span><span class="p">);</span> <span class="c1">// اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون</span>
-
-</code></pre></div></div>
-<h1 id="installation"><code class="language-plaintext highlighter-rouge">installation</code></h1>
-
-<p>1.install via composer</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require adnane/laravel-speaks-arabic
-</code></pre></div></div>
-<p>2.in your <code class="language-plaintext highlighter-rouge">config\app.php</code> add the service provider in providers array</p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'providers'</span> <span class="o">=&gt;</span> <span class="p">[</span> 
-    <span class="nc">Adnane\Arabic\ArabicServiceProvider</span><span class="o">::</span><span class="n">class</span><span class="p">,</span>
-<span class="p">]</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>as you can define an alias in <code class="language-plaintext highlighter-rouge">config\app.php</code> in the aliases array</p>
-  <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'Arabic'</span> <span class="o">=&gt;</span> <span class="nc">Adnane\Arabic\Arabic</span><span class="o">::</span><span class="n">class</span><span class="p">,</span>
-</code></pre></div>  </div>
-</blockquote>
-
-<h1 id="use-in-blade-files"><code class="language-plaintext highlighter-rouge">use in blade files</code></h1>
-<blockquote>
-  <p>change <code class="language-plaintext highlighter-rouge">method</code> to needed method like <code class="language-plaintext highlighter-rouge">Arabic::tafkit(643646)</code> or <code class="language-plaintext highlighter-rouge">arabic()-&gt;tafkit(643646)</code></p>
-</blockquote>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="c1">// make sure you define an alias first</span>
-</code></pre></div></div>
-<p>or</p>
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
-
-<h1 id="how-to-use"><code class="language-plaintext highlighter-rouge">How to use</code></h1>
-<blockquote>
-  <p>Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.</p>
-</blockquote>
-
-<p><strong>1.using a helper</strong></p>
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">arabic</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">method</span><span class="p">(</span><span class="nv">$params</span><span class="p">)</span>
-<span class="c1">// or</span>
-<span class="nf">arabic</span><span class="p">()</span><span class="o">::</span><span class="nf">method</span><span class="p">(</span><span class="nv">$params</span><span class="p">)</span>
-</code></pre></div></div>
-<p><strong>2.using an imported class</strong></p>
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">use</span> <span class="nc">Adnane\Arabic\Arabic</span><span class="p">;</span>
-<span class="c1">// or by using an alias </span>
-<span class="kn">use</span> <span class="nc">Arabic</span><span class="p">;</span>
-
-
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">method</span><span class="p">(</span><span class="nv">$params</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h1 id="methods"><code class="language-plaintext highlighter-rouge">Methods</code></h1>
-<p><strong>1.Working with numbers &amp; integers</strong></p>
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
-| convert numeric numbers to spelled strings 
-| @params : $integer (int) required | max : 999999999999999
-|
-| example of output :خمس عشر مليون و مئتان و أحدا عشر ألف و ثمان مئة و اثنان و تسعون
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">tafkit</span><span class="p">(</span><span class="nv">$integer</span><span class="p">)</span>
-
-<span class="cm">/* 
-| convert numeric numbers to ordered declares
-| @params : $integer (int) required | max : 999999999999999
-|
-| example of output : الثالث و العشرون
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">tartib</span><span class="p">(</span><span class="nv">$integer</span><span class="p">)</span>
-
-<span class="cm">/* 
-| rewrite numbers in a containing string to be like ۱٧۳۱۸
-| @params : $str (string) required
-| 
-| example of output : ولد عليه الصلاة والسلام في ۱۲ ربيع الاول من عام ٦۲۲ ميلادية
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">arkam</span><span class="p">(</span><span class="nv">$longText</span><span class="p">)</span> 
-
-</code></pre></div></div>
-
-<p><strong>2.Working with dates &amp; times</strong></p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
-| convert a given date to hijri takwim date 
-| format : f , s , n 
-| @params : $format (string) , $date (Y/m/d) 
-|
-| example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">hijri</span><span class="p">(</span><span class="nv">$format</span> <span class="o">=</span> <span class="s1">'f'</span> <span class="p">,</span><span class="nv">$date</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span>
-
-<span class="cm">/* 
-| Get the relative time between two given dates 
-| @params : $date (Y/m/d) required , $date2 (Y/m/d) , $detailed (boolean) 
-| 
-| example of output : منذ ثلاث أشهر 
-| example of output2 : مئة و أحدا عشر سنة 
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">fariq</span><span class="p">(</span><span class="nv">$date</span> <span class="p">,</span><span class="nv">$date2</span> <span class="o">=</span> <span class="kc">null</span> <span class="p">,</span><span class="nv">$detailed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
-
-</code></pre></div></div>
-<p><strong>3.Working with Strings &amp; longTexts</strong></p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
-| get rid of The vowel diacritics in Arabic  
-| @params : $str (string) required [ string to clean ]
-| example :
-| [input] : أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعَهُمْ لِلنَّاسِ، وَأَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ سُرُورٍ تُدْخِلُهُ عَلَى مُسْلِمٍ،
-| output : أحب الناس إلى الله أنفعهم للناس، وأحب الأعمال إلى الله سرور تدخله على مسلم 
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">removeHarakat</span><span class="p">(</span><span class="nv">$longText</span><span class="p">)</span>
-
-<span class="cm">/* 
-| rewrite strings and texts to match the keyboard reveresed in english 
-| this method can be really helpful when it comes to making search procces better 
-| @params : $str (string) required [ string to reverse ]
-| 
-| example :
-| [input] : sg,h hggi uglh khtuh ,,ju,`,h fhggi lk ugl gh dktu
-| [output] : سلوا الله علما نافعا ووتعوذوا بالله من علم لا ينفع
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">toKeyboardInput</span><span class="p">(</span><span class="nv">$longText</span><span class="p">)</span>
-
-<span class="cm">/* 
-| rewrite strings and texts to be written and spelled in english letters 
-| this mehotd can be really helpful when it comes to making seo friendly url's or arabic slugs 
-| @params : $str (string) required [ string to write in spelled form ]
-| 
-| [input] : إِذَا مَاتَ الإنْسَانُ انْقَطَعَ عنْه عَمَلُهُ إِلَّا مِن ثَلَاثَةٍ: إِلَّا مِن صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو له
-| [output] : izaa maat ālinsaan ānqta anh amlh ilaa mn thlaatht: ilaa mn sdqt jaariit، āoo alm yntfa bh، āoo wld saalh ydaoo lh
-*/</span>
-<span class="nc">Arabic</span><span class="o">::</span><span class="nf">toSpelled</span><span class="p">(</span><span class="nv">$longText</span><span class="p">)</span>
-
-</code></pre></div></div>
-
-<h1 id="important-notes"><code class="language-plaintext highlighter-rouge">Important Notes</code></h1>
-<p><strong>This package is still under development ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!</strong></p>
-
-<p><strong>it’s highly recommended you follow the written code manner</strong></p>
-<ol>
-  <li>Create new PHP class in <a href="/ar/">/src/Ar/</a></li>
-  <li>You may need to add some data in <a href="/Ar/data/YourFolder/">/Ar/data/YourFolder/</a></li>
-  <li>define your method &amp; related instance in <code class="language-plaintext highlighter-rouge">$methods property</code> in <a href="/laravel-speaks-arabic/src/Arabic.php">/src/Arabic.php</a> !</li>
-</ol>
-
-<p>That’s it!</p>
-
-
-      <footer class="site-footer">
-        
-          <span class="site-footer-owner"><a href="https://github.com/dannyk-99/laravel-speaks-arabic">laravel-speaks-arabic</a> is maintained by <a href="https://github.com/dannyk-99">dannyk-99</a>.</span>
-        
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      <h1 class="project-name">laravel speaks arabic</h1>
+      <h2 class="project-tagline">
+        a light-weight & an open-source laravel package 
+        that facilitates dealing with arabic concepts 
+        in Laravel Framework using a set of Classess 
+        and methods to make laravel speaks arabic! 
+        concepts like , Hijri Dates & Arabic strings 
+        and so on
+      </h2>
+      <div class="github-btn" style="margin-top: 10px;">
+        <a class="github-button" href="https://github.com/dannyk-99/laravel-speaks-arabic/fork" data-icon="octicon-repo-forked" aria-label="Fork dannyk-99/laravel-speaks-arabic on GitHub">Fork</a>
+        <a class="github-button" href="https://github.com/dannyk-99/laravel-speaks-arabic" data-icon="octicon-star" aria-label="Star dannyk-99/laravel-speaks-arabic on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/dannyk-99/laravel-speaks-arabic/subscription" data-icon="octicon-eye" aria-label="Watch dannyk-99/laravel-speaks-arabic on GitHub">Watch</a>
+        <a class="github-button" href="https://github.com/dannyk-99" aria-label="Follow @dannyk-99 on GitHub">Follow @dannyk-99</a>
+      </div>
+      <img src="https://res.cloudinary.com/hdqy5m9is/image/upload/v1616706004/carbon_5_1_sijiwm.png" alt="">
+      <footer class="site-footer">      
+        <span class="site-footer-owner">
+          <a href="https://github.com/dannyk-99/laravel-speaks-arabic">
+            laravel-speaks-arabic
+          </a> 
+          is maintained by 
+          <a href="https://github.com/dannyk-99">
+            Adnane Kadri
+          </a>.
+        </span>
       </footer>
     </section>
-
-    
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
