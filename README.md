@@ -8,8 +8,6 @@
 use Adnane\Arabic\Arabic;
 
 echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
-// or
-echo arabic()->tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 
 ```
 **installation**
@@ -26,7 +24,7 @@ composer require adnane/laravel-speaks-arabic
 ]
 ```
 
-3.as you can define an alias in ```config\app.php``` in the aliases array 
+> as you can define an alias in ```config\app.php``` in the aliases array 
 ```php 
 'Arabic' => Adnane\Arabic\Arabic::class,
 ```
@@ -44,18 +42,27 @@ or
 {{ arabic()->method($input) }}
 ```
  
-# Methods & How to use 
+# ```How to use``` 
+>Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.
 
-**import the class as bellow**
+**1.using a helper**
+```php 
+arabic()->method($params)
+// or
+arabic()::method($params)
+```
+**2.using an imported class**
 ```php 
 use Adnane\Arabic\Arabic;
-```
-
-**or just use the alias you just defined**
-```php 
+// or by using an alias 
 use Arabic;
+
+
+Arabic::method($params)
 ```
 
+
+# ```Methods```
 **1.Working with numbers & integers**
 ```php 
 /* 
@@ -65,9 +72,6 @@ use Arabic;
 | example of output :خمس عشر مليون و مئتان و أحدا عشر ألف و ثمان مئة و اثنان و تسعون
 */
 Arabic::tafkit($integer)
-// or by using helper method
-arabic()->tafkit($integer)
-
 
 /* 
 | convert numeric numbers to ordered declares
@@ -76,8 +80,6 @@ arabic()->tafkit($integer)
 | example of output : الثالث و العشرون
 */
 Arabic::tartib($integer)
-// or by using helper method
-arabic()->tartib($integer)
 
 /* 
 | rewrite numbers in a containing string to be like ۱٧۳۱۸
@@ -86,8 +88,7 @@ arabic()->tartib($integer)
 | example of output : ولد عليه الصلاة والسلام في ۱۲ ربيع الاول من عام ٦۲۲ ميلادية
 */
 Arabic::arkam($longText) 
-// or by using helper method
-arabic()->arkam($longText) 
+
 ```
 
 **2.Working with dates & times**
@@ -101,8 +102,6 @@ arabic()->arkam($longText)
 | example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
 */
 Arabic::hijri($format = 'f' ,$date = null)
-// or by using helper method
-arabic()->hijri($format = 'f' ,$date = null)
 
 /* 
 | Get the relative time between two given dates 
@@ -112,8 +111,6 @@ arabic()->hijri($format = 'f' ,$date = null)
 | example of output2 : مئة و أحدا عشر سنة 
 */
 Arabic::fariq($date ,$date2 = null ,$detailed = false)
-// or by using helper method
-arabic()->fariq($date ,$date2 = null ,$detailed = false)
 
 ```
 **3.Working with Strings & longTexts**
@@ -127,8 +124,6 @@ arabic()->fariq($date ,$date2 = null ,$detailed = false)
 | output : أحب الناس إلى الله أنفعهم للناس، وأحب الأعمال إلى الله سرور تدخله على مسلم 
 */
 Arabic::removeHarakat($longText)
-// or by using helper method
-arabic()->removeHarakat($longText)
 
 /* 
 | rewrite strings and texts to match the keyboard reveresed in english 
@@ -140,8 +135,6 @@ arabic()->removeHarakat($longText)
 | [output] : سلوا الله علما نافعا ووتعوذوا بالله من علم لا ينفع
 */
 Arabic::toKeyboardInput($longText)
-// or by using helper method
-arabic()->toKeyboardInput($longText)
 
 /* 
 | rewrite strings and texts to be written and spelled in english letters 
@@ -152,17 +145,12 @@ arabic()->toKeyboardInput($longText)
 | [output] : izaa maat ālinsaan ānqta anh amlh ilaa mn thlaatht: ilaa mn sdqt jaariit، āoo alm yntfa bh، āoo wld saalh ydaoo lh
 */
 Arabic::toSpelled($longText)
-// or by using helper method
-arabic()->toSpelled($longText)
+
 ```
 
 **This package is still under development ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!**
 
 **it's highly recommended you follow the written code manner**
 1. Create new PHP class in ```/Ar/```
-<<<<<<< Updated upstream
 2. You may need to add some data in ```/Ar/data/YourFolder/```
-=======
-2. You may need to add some data in ```/Ar/data/YourFloder/```
->>>>>>> Stashed changes
-2. Import your class in Arabic.php & define your methods !That's it!
+2. define your method & related instance in the methods array in [/src/Arabic.php](/src/Arabic.php) !That's it!
