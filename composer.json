@@ -6,12 +6,20 @@
         {
             "name": "dannyk-99",
             "email": "dannykadri0@gmail.com"
+        },
+        {
+            "name": "muath-ye",
+            "email": "muathye@gmail.com",
+            "homepage": "https://muath-ye.github.io"
         }
     ],
     "autoload": {
         "psr-4": {
             "Adnane\\Arabic\\": "/src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "require": {}
 }

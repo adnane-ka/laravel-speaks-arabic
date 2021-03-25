@@ -1,6 +1,6 @@
 # Laravel Speaks Arabic  
 
-**"Laravel Speaks Arabic" is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of Classess and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
+**"Laravel Speaks Arabic" is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
 
 **code example**
 
@@ -8,6 +8,8 @@
 use Adnane\Arabic\Arabic;
 
 echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
+// or
+echo arabic()->tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 
 ```
 **installation**
@@ -32,8 +34,14 @@ composer require adnane/laravel-speaks-arabic
 # use in blade files 
 ***make sure you define an alias first***
 
+> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
+
 ```php 
 {{ Arabic::method($input) }}
+```
+or
+```php 
+{{ arabic()->method($input) }}
 ```
  
 # Methods & How to use 
@@ -57,6 +65,8 @@ use Arabic;
 | example of output :خمس عشر مليون و مئتان و أحدا عشر ألف و ثمان مئة و اثنان و تسعون
 */
 Arabic::tafkit($integer)
+// or by using helper method
+arabic()->tafkit($integer)
 
 
 /* 
@@ -66,6 +76,8 @@ Arabic::tafkit($integer)
 | example of output : الثالث و العشرون
 */
 Arabic::tartib($integer)
+// or by using helper method
+arabic()->tartib($integer)
 
 /* 
 | rewrite numbers in a containing string to be like ۱٧۳۱۸
@@ -74,6 +86,8 @@ Arabic::tartib($integer)
 | example of output : ولد عليه الصلاة والسلام في ۱۲ ربيع الاول من عام ٦۲۲ ميلادية
 */
 Arabic::arkam($longText) 
+// or by using helper method
+arabic()->arkam($longText) 
 ```
 
 **2.Working with dates & times**
@@ -87,6 +101,8 @@ Arabic::arkam($longText)
 | example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
 */
 Arabic::hijri($format = 'f' ,$date = null)
+// or by using helper method
+arabic()->hijri($format = 'f' ,$date = null)
 
 /* 
 | Get the relative time between two given dates 
@@ -96,6 +112,8 @@ Arabic::hijri($format = 'f' ,$date = null)
 | example of output2 : مئة و أحدا عشر سنة 
 */
 Arabic::fariq($date ,$date2 = null ,$detailed = false)
+// or by using helper method
+arabic()->fariq($date ,$date2 = null ,$detailed = false)
 
 ```
 **3.Working with Strings & longTexts**
@@ -109,6 +127,8 @@ Arabic::fariq($date ,$date2 = null ,$detailed = false)
 | output : أحب الناس إلى الله أنفعهم للناس، وأحب الأعمال إلى الله سرور تدخله على مسلم 
 */
 Arabic::removeHarakat($longText)
+// or by using helper method
+arabic()->removeHarakat($longText)
 
 /* 
 | rewrite strings and texts to match the keyboard reveresed in english 
@@ -120,6 +140,8 @@ Arabic::removeHarakat($longText)
 | [output] : سلوا الله علما نافعا ووتعوذوا بالله من علم لا ينفع
 */
 Arabic::toKeyboardInput($longText)
+// or by using helper method
+arabic()->toKeyboardInput($longText)
 
 /* 
 | rewrite strings and texts to be written and spelled in english letters 
@@ -130,11 +152,13 @@ Arabic::toKeyboardInput($longText)
 | [output] : izaa maat ālinsaan ānqta anh amlh ilaa mn thlaatht: ilaa mn sdqt jaariit، āoo alm yntfa bh، āoo wld saalh ydaoo lh
 */
 Arabic::toSpelled($longText)
+// or by using helper method
+arabic()->toSpelled($longText)
 ```
 
-**This package is still under developement ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!**
+**This package is still under development ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!**
 
 **it's highly recommended you follow the written code manner**
 1. Create new PHP class in ```/Ar/```
-2. You may need to add some data in ```/Ar/data/YourFloder/```
+2. You may need to add some data in ```/Ar/data/YourFolder/```
 2. Import your class in Arabic.php & define your methods !That's it!
