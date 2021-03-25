@@ -1,4 +1,4 @@
-# Laravel Speaks Arabic  
+# ```Laravel Speaks Arabic```
 
 **"Laravel Speaks Arabic" is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
 
@@ -10,7 +10,7 @@ use Adnane\Arabic\Arabic;
 echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 
 ```
-**installation**
+# ```installation```
 
 1.install via composer 
 ```
@@ -29,13 +29,12 @@ composer require adnane/laravel-speaks-arabic
 'Arabic' => Adnane\Arabic\Arabic::class,
 ```
 
-# use in blade files 
-***make sure you define an alias first***
-
+# ```use in blade files```
 > change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
 
 ```php 
 {{ Arabic::method($input) }}
+// make sure you define an alias first
 ```
 or
 ```php 
@@ -148,9 +147,12 @@ Arabic::toSpelled($longText)
 
 ```
 
+# ```Important Notes```
 **This package is still under development ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!**
 
 **it's highly recommended you follow the written code manner**
-1. Create new PHP class in ```/Ar/```
-2. You may need to add some data in ```/Ar/data/YourFolder/```
-2. define your method & related instance in the methods array in [/src/Arabic.php](/src/Arabic.php) !That's it!
+1. Create new PHP class in [/src/Ar/](/ar/)
+2. You may need to add some data in [/Ar/data/YourFolder/](/Ar/data/YourFolder/) 
+2. define your method & related instance in ```$methods property``` in [/src/Arabic.php](/src/Arabic.php) !
+
+That's it!
