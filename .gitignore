@@ -1,2 +1,5 @@
 /src/Ar/Grammar.php
 /src/Ar/data/grammar
+.phpunit.result.cache
+/tests
+/phpunit.xml

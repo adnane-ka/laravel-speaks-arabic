@@ -5,7 +5,9 @@
     "authors": [
         {
             "name": "dannyk-99",
-            "email": "dannykadri0@gmail.com"
+            "email": "dannykadri0@gmail.com",
+            "homepage":"https://github.com/dannyk-99",
+            "role": "developer"
         },
         {
             "name": "muath-ye",

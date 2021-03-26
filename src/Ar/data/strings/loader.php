@@ -10,6 +10,9 @@ trait loader
     {
         return [
            'letters' => self::toAssoc('letters.json'),
+           'en_letters'=> self::toAssoc('english_letters.json'),
+           'en_unique'=> self::toAssoc('en_unique.json'),
+
            'uniques' => self::toAssoc('uniques.json'),
 
            'map' => self::toAssoc('map.json'),

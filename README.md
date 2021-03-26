@@ -16,7 +16,8 @@ echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سب
 ```
 composer require adnane/laravel-speaks-arabic
 ```
-2.in your ```config\app.php``` add the service provider in providers array 
+
+2.Laravel Speaks Arabic's Provider will be automaticly added to the providers array in ```config\app.php``` , as you can manually add it 
 
 ```php 
 'providers' => [ 
@@ -24,7 +25,7 @@ composer require adnane/laravel-speaks-arabic
 ]
 ```
 
-> as you can define an alias in ```config\app.php``` in the aliases array 
+> you may define an alias in ```config\app.php``` in the aliases array for easy calls
 ```php 
 'Arabic' => Adnane\Arabic\Arabic::class,
 ```
@@ -43,6 +44,8 @@ or
  
 # ```How to use``` 
 >Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.
+
+> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
 
 **1.using a helper**
 ```php 
