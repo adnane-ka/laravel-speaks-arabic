@@ -84,7 +84,7 @@ class Tawkit
     | 
     */ 
     # method 
-    public static function GregorianToHijri($format = 'f' ,$date)
+    public static function GregorianToHijri($format = 'f' ,$date = null)
     {
         if(!$date) $time = time();
         else $time = strtotime($date);

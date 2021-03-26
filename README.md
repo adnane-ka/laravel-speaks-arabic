@@ -99,11 +99,11 @@ Arabic::arkam($longText)
 /* 
 | convert a given date to hijri takwim date 
 | format : f , s , n 
-| @params : $format (string) , $date (Y/m/d) 
+| @params : $format (string) , $date required (Y/m/d) 
 |
 | example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
 */
-Arabic::toHijri($format = 'f' ,$date = null)
+Arabic::toHijri($format = 'f' ,$date)
 
 // reverse 
 
