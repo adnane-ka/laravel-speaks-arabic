@@ -20,7 +20,7 @@ class Arabic
     private static $methods = 
     [
         #numbers and integers
-        'kalimat' => [ Ar\Tafkit::class ,'kalimat' ],
+        'tafkit' => [ Ar\Tafkit::class ,'kalimat' ],
         'tartib'  => [ Ar\Tafkit::class ,'tartib' ],
         'arkam'   => [ Ar\Tafkit::class ,'toIndianNums' ],
         
