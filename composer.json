@@ -1,13 +1,13 @@
 {
     "name": "adnane/laravel-speaks-arabic",
-    "description": "A laravel package that facilitates dealing with arabic concepts & charachters",
+    "description": "a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! ",
     "license": "MIT",
     "authors": [
         {
-            "name": "dannyk-99",
+            "name": "adnane-ka",
             "email": "dannykadri0@gmail.com",
-            "homepage":"https://github.com/dannyk-99",
-            "role": "developer"
+            "homepage":"https://github.com/adnane-ka",
+            "role": "Developer"
         },
         {
             "name": "muath-ye",

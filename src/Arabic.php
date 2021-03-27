@@ -20,19 +20,33 @@ class Arabic
     private static $methods = 
     [
         #numbers and integers
-        'tafkit' => [ Ar\Tafkit::class ,'kalimat' ],
-        'tartib'  => [ Ar\Tafkit::class ,'tartib' ],
-        'arkam'   => [ Ar\Tafkit::class ,'toIndianNums' ],
+        'toWords' => [ Ar\Tafkit::class ,'toWords' ],
+
+        'fromWords' => [ Ar\Tafkit::class ,'fromWords' ],
+
+        'toOrdinal'  => [ Ar\Tafkit::class ,'toOrdinal' ],
+
+        'toIndianNums'   => [ Ar\Tafkit::class ,'toIndianNums' ],
         
         #dates and times
         'toHijri'   => [ Ar\Tawkit::class ,'GregorianToHijri' ],
+
         'fromHijri'   => [ Ar\Tawkit::class ,'HijriToGregorian' ],
-        'fariq'   => [ Ar\Tawkit::class ,'getRelativeTime' ],
+
+        'toRelative'   => [ Ar\Tawkit::class ,'toRelative' ],
+
+        'fromRelative'   => [ Ar\Tawkit::class ,'fromRelative' ], # 
         
         #strings & texts
         'removeHarakat' => [ Ar\Strings::class ,'removeHarakat' ],
+
         'toKeyboardInput' => [ Ar\Strings::class ,'toKeyboardInput' ],
+
         'toSpelled' => [ Ar\Strings::class ,'toSpelled' ],
+
+        'countWords' => [ Ar\Strings::class ,'utf8WordCount'],
+
+        'containsAr' => [ Ar\Strings::class ,'containsArabic'],
     ];
 
     /* 

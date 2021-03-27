@@ -78,4 +78,34 @@ class Strings{
         }
         return $str;
     }
+
+
+    /*
+    | equivilant of str_word_count in non-utf8 strings
+    |
+    | @params : $str require 
+    | @return : int 
+    */
+    public static function utf8WordCount($str)
+    {
+        $regex = '/\\pL[\\pL\\p{Mn}\'-]*/u';
+           
+        return preg_match_all($regex, $str);
+    }
+    
+    /*
+    | check if a given string contains arabic 
+    | charachters 
+    |
+    | @params : $str require 
+    | @return : boolean  
+    */
+    public static function containsArabic($str)
+    {
+        if (preg_match('/[اأإء-ي]/ui', $str)) {
+            return true;
+        } 
+        return false;
+    }
+   
 }

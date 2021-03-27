@@ -5,6 +5,8 @@ namespace Adnane\Arabic\Ar;
 use Adnane\Arabic\Ar\data\tawkit\loader;
 use Adnane\Arabic\Arabic;
 
+use Adnane\Arabic\Ar\Tafkit;
+
 class Tawkit
 {   
     /* 
@@ -32,6 +34,8 @@ class Tawkit
     private static $previous = ' الفارط';
     private static $feminin = 'ة';
 
+    private static $add = 'زد';
+    private static $decrease = 'قل';
 
     use loader;
     
@@ -48,11 +52,11 @@ class Tawkit
     */
     private static function formatFull()
     {
-        return Arabic::tartib(self::$hijri[1]) . ' من ' /*day*/
+        return Tafkit::toOrdinal(self::$hijri[1]) . ' من ' /*day*/
         
         . self::monthName(self::$hijri[0]) . ' من السنة الهجرية ' /*month*/
         
-        . Arabic::tafkit(self::$hijri[2]); /*year*/
+        . Tafkit::toWords(self::$hijri[2]); /*year*/
     }
     
     /* 
@@ -208,7 +212,7 @@ class Tawkit
     | count time between two given dates 
     | example : 1900/12/12 -> "منذ مئة و عشرون سنة"
     */
-    public static function getRelativeTime($date ,$date2 = null,$detailed = false)
+    public static function toRelative($date ,$date2 = null,$detailed = false)
     {
         $r = self::standardRelative($date ,$date2);
         $r = self::handleSpecials($r);
@@ -310,9 +314,9 @@ class Tawkit
                 {
                     if($level <= 9 && $level > 1)
                     {
-                        return Arabic::tafkit( $level ) .' '. $data[$levelSymbol]['p'];
+                        return Tafkit::toWords( $level ) .' '. $data[$levelSymbol]['p'];
                     }
-                    return Arabic::tafkit( $level ) .' '. $data[$levelSymbol]['s'];
+                    return Tafkit::toWords( $level ) .' '. $data[$levelSymbol]['s'];
                 }
                 else
                 {
@@ -322,5 +326,97 @@ class Tawkit
             }
         }
     }
+
+    /*
+    | ===================================================================
+    | 
+    | REVERSED METHODS
+    |
+    |===================================================================
+    |
+    */
+    
+    /*
+    | from relative to Dates 
+    | this functions is kinda the equivilant of the example bellow 
+    | date('Y/m/d' ,strtotime('+1 days'))
+    | 
+    | @params $str require (valid strings looks like : زد ثلاث اشهر , قل سنتين)
+    | 
+    */
+    public static function fromRelative($str)
+    {
+        // + / -
+        $indicator = self::detectIndicator($str);
+        
+        // قل سنين to سنتين and so on .. 
+        $str = self::detectAndGetRidOfRelative($str);
+        
+        // سنة , شهر , اسبوع .. الخ and so on .. 
+        $targetUnit = self::detectAndGetRidOfUnit($str)[0];
+        
+        // قل سنتين to سنتين and so on .. 
+        $str = self::detectAndGetRidOfUnit($str)[1];
+
+        // ثلاث to 3 and so on .. 
+        $amount = Tafkit::fromWords($str);
+
+        return date('Y/m/d' ,strtotime($indicator.$amount.' '.$targetUnit));
+    }
+    /* 
+    | Detect indicator in relative strings ( + / - ) 
+    | depending on presence of certain strings 
+    | 
+    | @params $str require (valid strings looks like : زد ثلاث اشهر , قل سنتين)
+    | @return - / + 
+    */
+    private static function detectIndicator($str)
+    {
+        $indicator = '+';
+
+        if(strpos($str ,self::$decrease) !== false) $indicator = '-';
+
+        return $indicator;
+    }
+    
+    /* 
+    | Detect The relative in relative strings ( add / decrease ) 
+    | depending on presence of certain strings 
+    | 
+    | @params $str require (valid strings looks like : زد ثلاث اشهر , قل سنتين)
+    | 
+    | @return add / decrease 
+    */
+    private static function detectAndGetRidOfRelative($str)
+    {
+        $relative = self::$add;
+
+        if(strpos($str ,self::$decrease) !== false) $relative = self::$decrease;
+           
+        return  str_replace($relative ,'',$str);
+    }
+
+    /* 
+    | Detect The relative unit in relative strings ( months / years / weeks ..ect ) 
+    | as it gets rid of the unit found , 
+    | 
+    | @params $str require (valid strings looks like : زد ثلاث اشهر , قل سنتين)
+    | 
+    | @return [ $unit , $str (given string trimed from unit) ]
+    */
+    private static function detectAndGetRidOfUnit($str)
+    {
+        $units = loader::load()['units'];
+        foreach (array_keys($units) as $unit) {
+            if(strpos($str ,$unit) !== false)
+            {
+                return [ 
+                    $units[$unit], 
+                    str_replace($unit,'',$str)
+                ];
+            }
+        }
+    }
+    
 
 }

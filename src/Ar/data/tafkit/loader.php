@@ -20,6 +20,11 @@ trait loader
             'order' => self::toAssoc('order.json'),
 
             'numbers' => self::toAssoc('numbers.json'),
+
+            'zero_to_20' => self::toAssoc('zero_to_20.json'),
+            'spaced_ones' => self::toAssoc('spaced_ones.json'),
+            'trimed_uniques' => self::toAssoc('trimed_uniques.json'),
+            'trimed_tens' => self::toAssoc('trimed_tens.json'),
         ];
     }
     /*
