@@ -65,92 +65,147 @@ Arabic::method($params)
 
 
 # ```Methods```
+
 **1.Working with numbers & integers**
 ```php 
-/* 
-| convert numeric numbers to spelled strings 
-| @params : $integer (int) required | max : 999999999999999
-|
-| example of output :خمس عشر مليون و مئتان و أحدا عشر ألف و ثمان مئة و اثنان و تسعون
+/**
+ * get the arabic words representation of a given int , called also تفقيط 
+ * @return string 
 */
-Arabic::tafkit($integer)
+Arabic::toWords(int $integer)
 
-/* 
-| convert numeric numbers to ordered declares
-| @params : $integer (int) required | max : 999999999999999
-|
-| example of output : الثالث و العشرون
+/**
+ * get the numeric representation of a given string , reverse of previous method 
+ * @return int 
 */
-Arabic::tartib($integer)
+Arabic::fromWords(string $str) 
 
-/* 
-| rewrite numbers in a containing string to be like ۱٧۳۱۸
-| @params : $str (string) required
-| 
-| example of output : ولد عليه الصلاة والسلام في ۱۲ ربيع الاول من عام ٦۲۲ ميلادية
+/**
+ * get the ordinal form of a given int
+ * @return string 
 */
-Arabic::arkam($longText) 
+Arabic::toOrdinal(int $int) 
 
+/**
+ * rewrite numbers in a containing string to be like ۱٧۳۱۸
+ * @return string 
+*/
+Arabic::toIndianNums(string $str) 
 ```
 
 **2.Working with dates & times**
 
 ```php 
-/* 
-| convert a given date to hijri takwim date 
-| format : f , s , n 
-| @params : $format (string) , $date required (Y/m/d) 
-|
-| example of output : الحادي عشر من شعبان من السنة الهجرية ألف و أربع مئة و اثنان و أربعون
+/**
+ * convert a given date to hijri takwim date in a given format (format : f , s , n )
+ * @return string 
 */
-Arabic::toHijri($format = 'f' ,$date)
+Arabic::toHijri(string $format = 'f' ,string $date)
 
-// reverse 
-
-Arabic::fromHijri($date /*Y/m/d*/);
-/* 
-| Get the relative time between two given dates 
-| @params : $date (Y/m/d) required , $date2 (Y/m/d) , $detailed (boolean) 
-| 
-| example of output : منذ ثلاث أشهر 
-| example of output2 : مئة و أحدا عشر سنة 
+/**
+ * convert a given hijri hijri to gregorian normal date 
+ * @return string 
 */
-Arabic::fariq($date ,$date2 = null ,$detailed = false)
+Arabic::fromHijri(string $date /*Y/m/d*/);
+
+/**
+ * Get the relative time between two given dates 
+ * @return string 
+*/
+Arabic::toRelative(string $date ,string $date2 = null ,boolean $detailed = false);
+
+/**
+ * Get the date from a given relative time 
+ * @return string 
+*/
+Arabic::fromRelative(string $relative);
 
 ```
 **3.Working with Strings & longTexts**
 
 ```php 
-/* 
-| get rid of The vowel diacritics in Arabic  
-| @params : $str (string) required [ string to clean ]
-| example :
-| [input] : أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعَهُمْ لِلنَّاسِ، وَأَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ سُرُورٍ تُدْخِلُهُ عَلَى مُسْلِمٍ،
-| output : أحب الناس إلى الله أنفعهم للناس، وأحب الأعمال إلى الله سرور تدخله على مسلم 
+/**
+ * get rid of The vowel diacritics in Arabic  
+ * @return string 
 */
-Arabic::removeHarakat($longText)
+Arabic::removeHarakat(string $str)
 
-/* 
-| rewrite strings and texts to match the keyboard reveresed in english 
-| this method can be really helpful when it comes to making search procces better 
-| @params : $str (string) required [ string to reverse ]
-| 
-| example :
-| [input] : sg,h hggi uglh khtuh ,,ju,`,h fhggi lk ugl gh dktu
-| [output] : سلوا الله علما نافعا ووتعوذوا بالله من علم لا ينفع
+/**
+ * rewrite strings and texts to match the keyboard reveresed in english 
+ * this method can be really helpful when it comes to making search procces better 
+ * @return string 
 */
-Arabic::toKeyboardInput($longText)
+Arabic::toKeyboardInput(string $str)
 
-/* 
-| rewrite strings and texts to be written and spelled in english letters 
-| this mehotd can be really helpful when it comes to making seo friendly url's or arabic slugs 
-| @params : $str (string) required [ string to write in spelled form ]
-| 
-| [input] : إِذَا مَاتَ الإنْسَانُ انْقَطَعَ عنْه عَمَلُهُ إِلَّا مِن ثَلَاثَةٍ: إِلَّا مِن صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو له
-| [output] : izaa maat ālinsaan ānqta anh amlh ilaa mn thlaatht: ilaa mn sdqt jaariit، āoo alm yntfa bh، āoo wld saalh ydaoo lh
+/**
+ * rewrite strings and texts to be written and spelled in english letters 
+ * this mehotd can be really helpful when it comes to making seo friendly url's or arabic slugs 
+ * @return string 
 */
-Arabic::toSpelled($longText)
+Arabic::toSpelled(string $str)
 
+/**
+ * equivilant of str_word_count in non utf8 strings & longTexts such as arabic  
+ * @return int 
+*/
+Arabic::countWords(string $str);
+
+/**
+ * check if a given string contains arabic charachters 
+ * @return boolean 
+*/
+Arabic::containsAr(string $str);
+```
+
+# ```Examples Of Different Uses```
+```php
+Arabic::toWords(56)
+//  ست وخمسون
+
+Arabic::fromWords("ثمان مئة و خمسة")
+//  805
+
+Arabic::toOrdinal(12)
+//  الثاني عشر
+
+Arabic::toIndianNums("ولد عليه الصلاة في 12 ربيع الأول")
+//  ولد عليه الصلاة في ۱۲ ربيع الاول
+
+Arabic::toHijri('f' ,'2021/12/12')
+//  الثامن من جمادى الأولى من السنة الهجرية ألف و أربع مئة و ثلاث و أربعون
+
+Arabic::fromHijri('1442/01/08')
+// 8/27/2020
+
+Arabic::toRelative('2010/01/10')
+//  منذ أحد عشر سنة
+
+Arabic::toRelative('2010/01/10' ,'2008/01/10')
+//  ثلاث سنين 
+
+Arabic::toRelative('2010/01/10' ,'2008/01/10' ,true)
+// [ "y" => 3 , "m" => 39 ,"w" => 156 , "d" => 1096 ,"h" => 26304 ,"mn" => 1578240 ,"s" => 94694400 ] 
+
+Arabic::fromRelative('زد سنة')
+// 2022/03/28
+
+Arabic::fromRelative('قل ست اشهر')
+//  2020/09/28
+
+Arabic::removeHarakat('لا حسَدَ إلَّا في اثنتيْنِ: رجلٌ آتاهُ اللهُ مالًا، فسلَّطَهُ على هلَكتِه في الحقِّ، ورجلٌ آتاهُ اللهُ الحِكمةَ، فهوَ يقضِي بِها، ويُعلِّمُها')
+//  لا حسد إلا في اثنتين: رجل آتاه الله مالا، فسلطه على هلكته في الحق، ورجل آتاه الله الحكمة، فهو يقضي بها، ويعلمها
+
+Arabic::toKeyboardInput('dl;k hsjulhg ihji hg]hgm td jpsdk ulgdhj hgfpe fl,ru!')
+// يمكن استعمال هاته الدالة في تحسين عمليات البحث بموقع!
+
+Arabic::toSpelled("قد تساعد هاته الدالة في عمل slugs أو تحسين عمليات البحث")
+// qd tsaaad haath āldaalt fii aml slugs āoo thsiin amliiāt ālbhth
+
+Arabic::countWords("هاته الدالة هي المكافئة لاخرى بالبي اتش بي غير ان هاته لا تتجاهل ترميز اليو تي اف ايت")
+// 18
+
+Arabic::containsAr("this method checks if a given string contains arabic words or charachters , for example : if we mentioned لارفيل يتحدث عربي it will return true!") 
+// true
 ```
 
 # ```Important Notes```

@@ -357,6 +357,7 @@ class Tawkit
         
         // قل سنتين to سنتين and so on .. 
         $str = self::detectAndGetRidOfUnit($str)[1];
+        if(strlen(trim($str)) == 0) $str = 'واحد';
 
         // ثلاث to 3 and so on .. 
         $amount = Tafkit::fromWords($str);
