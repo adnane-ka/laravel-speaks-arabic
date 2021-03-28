@@ -45,7 +45,7 @@ or
 # ```How to use``` 
 >Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.
 
-> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
+> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
 **1.using a helper**
 ```php 
