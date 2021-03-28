@@ -7,7 +7,7 @@
 ```php 
 use Adnane\Arabic\Arabic;
 
-echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
+echo Arabic::toWords(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 
 ```
 # ```installation```
