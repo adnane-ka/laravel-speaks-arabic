@@ -31,7 +31,7 @@ composer require adnane/laravel-speaks-arabic
 ```
 
 # ```use in blade files```
-> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
+> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
 ```php 
 {{ Arabic::method($input) }}
