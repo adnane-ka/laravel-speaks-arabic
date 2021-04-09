@@ -1,14 +1,15 @@
 # ```Laravel Speaks Arabic```
 
-**"Laravel Speaks Arabic" is a light weight ,open-source laravel package . It facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
 
-**code example**
+**A light weight laravel package , That facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
+
+**wanna see a code snippet?**
 
 ```php 
-use Adnane\Arabic\Arabic;
-
-echo Arabic::tafkit(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
-
+echo Arabic::toWords(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 ```
 # ```installation```
 
@@ -31,11 +32,10 @@ composer require adnane/laravel-speaks-arabic
 ```
 
 # ```use in blade files```
-> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
+> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
 ```php 
 {{ Arabic::method($input) }}
-// make sure you define an alias first
 ```
 or
 ```php 
@@ -45,7 +45,7 @@ or
 # ```How to use``` 
 >Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.
 
-> change ```method``` to needed method like ```Arabic::tafkit(643646)``` or ```arabic()->tafkit(643646)```
+> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
 **1.using a helper**
 ```php 
@@ -209,7 +209,9 @@ Arabic::containsAr("this method checks if a given string contains arabic words o
 ```
 
 # ```Important Notes```
-**This package is still under development ,as it was recently created, please feel free to contribute or help us making laravel speaks arabic better by opening a discuss , fixing a bug or helping in improving some methods!**
+**Please feel free to contribute or help us making laravel speaks arabic better by opening a discuss ,Adding some extra methods , fixing a bug or helping in improving some methods!**
+
+# ```How to Contribute```
 
 **it's highly recommended you follow the written code manner**
 1. Create new PHP class in [/src/Ar/](/ar/)
