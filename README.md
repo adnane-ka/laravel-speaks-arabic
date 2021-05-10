@@ -1,4 +1,4 @@
-# ```Laravel Speaks Arabic```
+## Laravel Speaks Arabic
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -12,7 +12,7 @@
 @toWords(12078437); 
 // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 ```
-# ```installation```
+## installation
 
 1.install via composer 
 ```
@@ -27,7 +27,7 @@ composer require adnane/laravel-speaks-arabic
 ]
 ```
  
-# ```How to use``` 
+## How to use 
 - Make sure you correctly install & setup the package , import the class ```Adnane\Arabic\Arabic``` and call the available methods with  therequired paramateres 
 
 > change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
@@ -41,7 +41,7 @@ arabic()::method($params)
 ```
 
 
-# ```Methods```
+## Methods
 
 **1.Working with numbers & integers**
 ```php 
@@ -134,7 +134,7 @@ Arabic::countWords(string $str);
 Arabic::containsAr(string $str);
 ```
 
-# ```Examples Of Different Uses```
+## Examples Of Different Uses
 ```php
 Arabic::toWords(56)
 //  ست وخمسون
@@ -184,7 +184,7 @@ Arabic::countWords("هاته الدالة هي المكافئة لاخرى با�
 Arabic::containsAr("this method checks if a given string contains arabic words or charachters , for example : if we mentioned لارفيل يتحدث عربي it will return true!") 
 // true
 ```
-# ```use in blade files```
+## use in blade files
 > change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
 ```php 
@@ -204,10 +204,10 @@ as you can use the following blade directives for clean coding :
 @removeHarakat(فهوَ يقضِي بِها، ويُعلِّمُها)
 ```
 
-# ```Important Notes```
+## Important Notes
 **Please feel free to contribute or help us making laravel speaks arabic better by opening a discuss ,Adding some extra methods , fixing a bug or helping in improving some methods!**
 
-# ```How to Contribute```
+## How to Contribute
 
 **it's highly recommended you follow the written code manner**
 1. Create new PHP class in [/src/Ar/](/ar/)
