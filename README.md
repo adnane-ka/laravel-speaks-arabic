@@ -9,7 +9,8 @@
 **wanna see a code snippet?**
 
 ```php 
-echo Arabic::toWords(12078437); // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
+@toWords(12078437); 
+// اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 ```
 # ```installation```
 
@@ -18,49 +19,25 @@ echo Arabic::toWords(12078437); // اثنا عشر مليون و ثمان و س�
 composer require adnane/laravel-speaks-arabic
 ```
 
-2.Laravel Speaks Arabic's Provider will be automaticly added to the providers array in ```config\app.php``` , as you can manually add it 
+2.Add the Service provider in the Providers Array in ```config\app.php``` as bellow : 
 
 ```php 
 'providers' => [ 
     Adnane\Arabic\ArabicServiceProvider::class,
 ]
 ```
-
-> you may define an alias in ```config\app.php``` in the aliases array for easy calls
-```php 
-'Arabic' => Adnane\Arabic\Arabic::class,
-```
-
-# ```use in blade files```
-> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
-
-```php 
-{{ Arabic::method($input) }}
-```
-or
-```php 
-{{ arabic()->method($input) }}
-```
  
 # ```How to use``` 
->Methods Can Be Called in Severeal Ways . statically, non-statically or using a helper or an imported class.
+- Make sure you correctly install & setup the package , import the class ```Adnane\Arabic\Arabic``` and call the available methods with  therequired paramateres 
 
 > change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
 
-**1.using a helper**
-```php 
-arabic()->method($params)
-// or
-arabic()::method($params)
-```
-**2.using an imported class**
 ```php 
 use Adnane\Arabic\Arabic;
-// or by using an alias 
-use Arabic;
-
-
 Arabic::method($params)
+
+// or directly by using a helper
+arabic()::method($params)
 ```
 
 
@@ -206,6 +183,25 @@ Arabic::countWords("هاته الدالة هي المكافئة لاخرى با�
 
 Arabic::containsAr("this method checks if a given string contains arabic words or charachters , for example : if we mentioned لارفيل يتحدث عربي it will return true!") 
 // true
+```
+# ```use in blade files```
+> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
+
+```php 
+{{ Arabic::method($input) }}
+```
+or
+```php 
+{{ arabic()->method($input) }}
+```
+as you can use the following blade directives for clean coding :
+```php 
+@toWords(4367)
+@toOrdinal(564)
+@toIndianNums(ولد عليه الصلاة في 12 ربيع الأول) 
+@toHijri(2020/12/12)
+@toRelative(2019/12/01)
+@removeHarakat(فهوَ يقضِي بِها، ويُعلِّمُها)
 ```
 
 # ```Important Notes```

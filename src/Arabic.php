@@ -21,31 +21,17 @@ class Arabic
     [
         #numbers and integers
         'toWords' => [ Ar\Tafkit::class ,'toWords' ],
-
         'fromWords' => [ Ar\Tafkit::class ,'fromWords' ],
-
         'toOrdinal'  => [ Ar\Tafkit::class ,'toOrdinal' ],
-
         'toIndianNums'   => [ Ar\Tafkit::class ,'toIndianNums' ],
-        
-        #dates and times
         'toHijri'   => [ Ar\Tawkit::class ,'GregorianToHijri' ],
-
         'fromHijri'   => [ Ar\Tawkit::class ,'HijriToGregorian' ],
-
         'toRelative'   => [ Ar\Tawkit::class ,'toRelative' ],
-
-        'fromRelative'   => [ Ar\Tawkit::class ,'fromRelative' ], # 
-        
-        #strings & texts
+        'fromRelative'   => [ Ar\Tawkit::class ,'fromRelative' ],
         'removeHarakat' => [ Ar\Strings::class ,'removeHarakat' ],
-
         'toKeyboardInput' => [ Ar\Strings::class ,'toKeyboardInput' ],
-
         'toSpelled' => [ Ar\Strings::class ,'toSpelled' ],
-
         'countWords' => [ Ar\Strings::class ,'utf8WordCount'],
-
         'containsAr' => [ Ar\Strings::class ,'containsArabic'],
     ];
 
