@@ -38,5 +38,7 @@ trait Caller
             
             return call_user_func_array([$instance , $method] ,$params);
         }
+
+        throw new \Exception('The method "'.$method.'" does not exist !');
     }
 }
