@@ -2,7 +2,6 @@
 
 namespace Adnane\Arabic;
 
-use Adnane\Arabic\Ar\Grammar;
 use Adnane\Arabic\Caller;
 
 class Arabic
