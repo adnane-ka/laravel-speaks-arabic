@@ -1,6 +1,6 @@
 <div dir="rtl">
 
-## Laravel Speaks Arabic - لارافيل يتحدث العربي
+##  لارافيل يتحدث العربي - Laravel Speaks Arabic
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
