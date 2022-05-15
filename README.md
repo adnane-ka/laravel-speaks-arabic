@@ -1,140 +1,204 @@
-## Laravel Speaks Arabic
+<div dir="rtl">
+
+## Laravel Speaks Arabic - لارافيل يتحدث العربي
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/adnane/laravel-speaks-arabic.svg?style=flat-square)](https://packagist.org/packages/adnane/laravel-speaks-arabic)
 
-**A light weight laravel package , That facilitates dealing with arabic concepts in Laravel Framework using a set of classes and methods to make laravel speaks arabic! concepts like , Hijri Dates & Arabic strings and so on ..**
+**حزمة خفيفة الوزن تسهل التعامل مع المفاهيم العربية في لارافيل، بإستخدام مجموعة من الفئات، الأساليب والتوابع لجعل لارافل يتحدث العربي! مفاهيم من مثل السلاسل النصية العربي والتواريخ الهجرية وغيرها**
 
-**wanna see a code snippet?**
+**مثال**
+
+<div dir="ltr">
 
 ```php 
 @toWords(12078437); 
 // اثنا عشر مليون و ثمان و سبعون ألف و أربع مئة و سبع و ثلاثون
 ```
-## installation
 
-1.install via composer 
+</div>
+
+
+## التثبيت
+
+1. التثبيت عن طريق مدير الحزم composer
+
+<div dir="ltr">
+
 ```
 composer require adnane/laravel-speaks-arabic
 ```
 
-2.Add the Service provider in the Providers Array in ```config\app.php``` as bellow : 
+</div>
+
+2. قم بإضافة مزود خدمة الحزمة الى مصفوفة providers في ملف `config\app.php` كالتالي:
+
+<div dir="ltr">
 
 ```php 
 'providers' => [ 
     Adnane\Arabic\ArabicServiceProvider::class,
 ]
 ```
- 
-## How to use 
-- Make sure you correctly install & setup the package , import the class ```Adnane\Arabic\Arabic``` and call the available methods with  therequired paramateres 
 
-> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
+</div>
+ 
+## كيفية الاستعمال
+- بعد التأكد من تثبيت الحزمة على نحو صحيح، سيمكنك تضمين الفئة الرئيسية ```Adnane\Arabic\Arabic``` واستعمال توابعها بشكل عادي
+
+> قم بتغيير ```method``` إلى التابع المراد كـ: ```Arabic::toWords(643646)``` أو كـ: ```arabic()->toWords(643646)```
+
+<div dir="ltr">
 
 ```php 
 use Adnane\Arabic\Arabic;
 Arabic::method($params)
 
-// or directly by using a helper
+// او مباشرة عن طريق الدالة المساعدة
 arabic()::method($params)
 ```
 
+</div>
 
-## Methods
+## التوابع المتوفرة
 
-**1.Working with numbers & integers**
+**1.التعامل مع الأعداد**
+
+<div dir="ltr">
+
 ```php 
 /**
- * get the arabic words representation of a given int , called also تفقيط 
+ * اعادة كتابة الاعداد كتابة لفظية انطلاقا من كتابة رمزية
+ * يسمى أيضا "تفقيط"
+ * 
  * @return string 
 */
 Arabic::toWords(int $integer)
 
 /**
- * get the numeric representation of a given string , reverse of previous method 
+ * اعادة كتابة الاعداد كتابة رمزية انطلاقا من كتابة لفظية
+ * هو عكس العملية السابقة
+ * 
  * @return int 
 */
 Arabic::fromWords(string $str) 
 
 /**
- * get the ordinal form of a given int
+ * جلب العدد الترتيبي انطلاقا من كتابة رمزية لعدد ما 
+ * مثال: أول، ثان، ثالث 
+ * 
  * @return string 
 */
 Arabic::toOrdinal(int $int) 
 
 /**
- * rewrite numbers in a containing string to be like ۱٧۳۱۸
+ * اعادة كتابة الارقام الموجودة في سلسلة نصية ما 
+ * كأرقام هندية (۰ - ۱ - ۲ - ۳ - ٤ - ٥ - ٦ - ٧ - ۸ - ۹)
+ * 
  * @return string 
 */
 Arabic::toIndianNums(string $str) 
 ```
 
-**2.Working with dates & times**
+</div>
+
+**2.التعامل مع التواريخ والتواقيت**
+
+<div dir="ltr">
 
 ```php 
 /**
- * convert a given date to hijri takwim date in a given format (format : f , s , n )
+ * تحويل تاريخ مكتوب بالتقويم الميلادي 
+ * الى تاريخ مكتوب بالتقويم الهجري
+ * مكتوبا بصيغة معينة
+ * 
+ * (الصيغ المدعومة : f , s , n )
  * @return string 
 */
 Arabic::toHijri(string $format = 'f' ,string $date)
 
 /**
- * convert a given hijri hijri to gregorian normal date 
+ * تحويل تاريخ مكتوب بالتقوم الهجري
+ * الى تاريخ مكتوب بالتقويم الميلادي
+ * 
  * @return string 
 */
 Arabic::fromHijri(string $date /*Y/m/d*/);
 
 /**
- * Get the relative time between two given dates 
+ * جلب فرق التوقيت بين وقتين او تاريخين. 
+ * تمرير المعامل details بالقيمة true 
+ * سيقوم باعادة فرق تفصيلي بين هاذين التوقيتين 
+ * 
  * @return string 
 */
 Arabic::toRelative(string $date ,string $date2 = null ,boolean $detailed = false);
 
 /**
- * Get the date from a given relative time 
+ * جلب توقيت ما انطلاقا من فرق مرفق 
+ * مثال: 
+ * Arabic::fromRelative('زد سنة') 
  * @return string 
 */
 Arabic::fromRelative(string $relative);
 
 ```
-**3.Working with Strings & longTexts**
+
+</div>
+
+**3. التعامل مع السلاسل النصية**
+
+<div dir="ltr">
 
 ```php 
 /**
- * get rid of The vowel diacritics in Arabic  
+ * ازالة التشكيل من سلسلة نصية ما
+ *  
  * @return string 
 */
 Arabic::removeHarakat(string $str)
 
 /**
- * rewrite strings and texts to match the keyboard reveresed in english 
- * this method can be really helpful when it comes to making search procces better 
+ * اعادة كتابة سلسلة نصية ما مكتوبة باللغة الانجليزية 
+ * الى المرافق لها بلوحة مفاتيح عربية
+ * يمكن استعمال هاته الوظيفة في تحسين عمليات البحث داخل الموقع
+ * 
  * @return string 
 */
 Arabic::toKeyboardInput(string $str)
 
 /**
- * rewrite strings and texts to be written and spelled in english letters 
- * this mehotd can be really helpful when it comes to making seo friendly url's or arabic slugs 
+ * اعادة كتابة سلسلة نصية عربية ما 
+ * بحروف انجليزية
+ * يمكن استعمال هاته الوظيفة في انشاء روابط صديقة البحث 
  * @return string 
 */
 Arabic::toSpelled(string $str)
 
 /**
- * equivilant of str_word_count in non utf8 strings & longTexts such as arabic  
+ * المكافئ للدالة str_word_count في PHP 
+ * من المهم جدا ملاحظة ان دالة ال PHP 
+ * str_word_count
+ * لا تدعم اللغى العربية 
+ * ولذلك ان هاته الوظيفة تعتبرا بديلا عنها في اللغة العريبة
  * @return int 
 */
 Arabic::countWords(string $str);
 
 /**
- * check if a given string contains arabic charachters 
+ * التحقق من ما ان كانت سلسلة نصية ما تحوي على الأقل حرفا عربيا واحدا
  * @return boolean 
 */
 Arabic::containsAr(string $str);
 ```
 
-## Examples Of Different Uses
+</div>
+
+## أمثلة عن عدة استعمالات
+
+<div dir="ltr">
+
 ```php
 Arabic::toWords(56)
 //  ست وخمسون
@@ -184,17 +248,28 @@ Arabic::countWords("هاته الدالة هي المكافئة لاخرى با�
 Arabic::containsAr("this method checks if a given string contains arabic words or charachters , for example : if we mentioned لارفيل يتحدث عربي it will return true!") 
 // true
 ```
-## use in blade files
-> change ```method``` to needed method like ```Arabic::toWords(643646)``` or ```arabic()->toWords(643646)```
+
+</div>
+
+## الاستعمال في ملفات blade 
+> قم بتغيير ```method``` إلى التابع المراد كـ: ```Arabic::toWords(643646)``` أو كـ: ```arabic()->toWords(643646)```
+
+<div dir="ltr">
 
 ```php 
 {{ Arabic::method($input) }}
-```
-or
-```php 
+
+// أو 
+
 {{ arabic()->method($input) }}
 ```
-as you can use the following blade directives for clean coding :
+
+</div>
+
+كما سيمكنك استعمال متغيرات القالب التالية لشيفرة أنظف
+
+<div dir="ltr">
+
 ```php 
 @toWords(4367)
 @toOrdinal(564)
@@ -204,14 +279,10 @@ as you can use the following blade directives for clean coding :
 @removeHarakat(فهوَ يقضِي بِها، ويُعلِّمُها)
 ```
 
-## Important Notes
-**Please feel free to contribute or help us making laravel speaks arabic better by opening a discuss ,Adding some extra methods , fixing a bug or helping in improving some methods!**
+</div>
 
-## How to Contribute
+## المساهمة
 
-**it's highly recommended you follow the written code manner**
-1. Create new PHP class in [/src/Ar/](/ar/)
-2. You may need to add some data in [/Ar/data/YourFolder/](/Ar/data/YourFolder/) 
-2. define your method & related instance in ```$methods property``` in [/src/Arabic.php](/src/Arabic.php) !
+**لا تتردد في المساهمة أو مساعدتنا في جعل Laravel يتحدث اللغة العربية بشكل أفضل من خلال فتح مناقشة أو إضافة بعض الطرق الإضافية أو إصلاح خطأ أو المساعدة في تحسين بعض الأساليب!**
 
-That's it!
+</div>
